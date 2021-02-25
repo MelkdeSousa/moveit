@@ -7,6 +7,7 @@ import ExperienceBar from '../components/ExperienceBar'
 import Profile from '../components/Profile'
 
 import { ChallengesProvider } from '../contexts/ChallengesContext'
+import { CountdownProvider } from '../contexts/CountdownContext'
 
 import styles from '../styles/pages/Home.module.css'
 
@@ -19,16 +20,18 @@ const Home = () => (
 
       <ExperienceBar />
 
-      <section>
-        <div>
-          <Profile />
-          <CompletedChallenges />
-          <Countdown />
-        </div>
-        <div>
-          <ChallengeBox />
-        </div>
-      </section>
+      <CountdownProvider>
+        <section>
+          <div>
+            <Profile />
+            <CompletedChallenges />
+            <Countdown />
+          </div>
+          <div>
+            <ChallengeBox />
+          </div>
+        </section>
+      </CountdownProvider>
     </div>
   </ChallengesProvider>
 )
